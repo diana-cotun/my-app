@@ -17,16 +17,16 @@ import Item from '../types/Item';
   styleUrl: './additem.component.css'
 })
 export class AdditemComponent {
+
   item: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     price: [0, Validators.required],
     quantity: [0, Validators.required],
     description: ['', Validators.required],
     url: ['', Validators.required]
-  });;
-  constructor(private itemService: ItemsService, private formBuilder: FormBuilder){}
+  });
 
-  // anotherItem: FormGroup = this.item;
+  constructor(private itemService: ItemsService, private formBuilder: FormBuilder){}
 
   public saveItem() {
     console.log(this.item.value)

@@ -11,13 +11,15 @@ import Item from '../types/Item';
   imports: [MatGridListModule, ItemCardComponent],
   templateUrl: './items-grid.component.html',
   styleUrl: './items-grid.component.css'
-
 })
 export class ItemsGridComponent implements OnInit {
   breakpoint: number = 3;
   items: Item[] = [];
   defaultImage = "https://hips.hearstapps.com/hmg-prod/images/dw-burnett-pcoty22-8260-1671143390.jpg?crop=0.867xw:0.651xh;0.0417xw,0.190xh&resize=1200:*";
   
+  constructor(private itemsService: ItemsService) {
+  }
+
   ngOnInit() {
     this.breakpoint = (window.innerWidth <= 500) ? 1 : 3;
     this.itemsService.getItems().subscribe((data) => {
@@ -33,12 +35,11 @@ export class ItemsGridComponent implements OnInit {
       })
     });
   }
+  
   onResize(event: any) {
     this.breakpoint = (event.target.innerWidth < 500) ? 1 : 3;
   }
 
-  constructor(private itemsService: ItemsService) {
-  }
 
   // dogs: string[] = [
   //   "Shiba Inu1",

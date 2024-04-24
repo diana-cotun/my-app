@@ -1,23 +1,23 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <!-- <div mat-card-avatar class="example-header-image"></div> -->
-      <mat-card-title>{{ name }}</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]="url" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        {{ description }}
-      </p>
-      <p>
-        {{ price }}
-      </p>
-      <p>
-        {{ quantity }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<mat-card class="example-card" >
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="url" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{ description }}
+    </p>
+    <p>
+      Price: {{ price }}
+    </p>
+    <p>
+      Quantity: {{ quantity }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)= "goToDetails()">DETAILS</button>
+    <button mat-button>BUY</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,5 +1,5 @@
-<form class="example-form" [formGroup]="item">
-    <h1>Create item</h1>
+<form class="example-form" [formGroup]="itemForm">
+    <h1>Update item</h1>
 
     <mat-form-field class="example-full-width">
         <mat-label>
@@ -34,5 +34,5 @@
 </form>
 
 <div class="example-button-row">
-    <button mat-stroked-button color="primary" (click)="saveItem()">Save</button>
+    <button mat-stroked-button color="primary" (click)="updateItem()">Save</button>
 </div>

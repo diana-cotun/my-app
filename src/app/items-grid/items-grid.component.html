@@ -1,16 +1,11 @@
 <mat-grid-list class="grid-list" [cols]="breakpoint" rowHeight="600" (window:resize)="onResize($event)">
 
-
   @for (item of items; track item; let i = $index) {
   <mat-grid-tile>
-    <app-item-card 
-      [name]="item.name" 
-      [description]="item.description" 
-      [price]="item.price" 
-      [quantity]="item.quantity" 
-      [url]="item.url">
+    <app-item-card [id]="item.id" [name]="item.name" [description]="item.description" [price]="item.price"
+      [quantity]="item.quantity" [url]="item.url">
     </app-item-card>
   </mat-grid-tile>
   }
 </mat-grid-list>
-  <!-- *ngFor="let item of dogs; let i = index" -->
+<!-- *ngFor="let item of dogs; let i = index" -->

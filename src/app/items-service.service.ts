@@ -8,11 +8,7 @@ import Item from './types/Item';
   providedIn: 'root'
 })
 export class ItemsService {
-  // http: HttpClient;
-  // constructor(http: HttpClient) { 
-  //   this.http = http;
-  // }
-
+ 
   private url = "http://localhost:8080/items";
 
   constructor(private http: HttpClient) { }
@@ -26,5 +22,17 @@ export class ItemsService {
   public saveItem(item: Item) {
     return this.http.post<Item>(this.url, item);
   }
+
+  public getItemById(id: number) {
+    return this.http.get<Item>(this.url+ "/"+ id)
+  }
+
+  public updateItem(id: Number, item: Item) {
+    return this.http.put<Item>(this.url+ "/"+ id, item)
+  }
+
+
+
+
 
 }
