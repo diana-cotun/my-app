@@ -24,11 +24,11 @@ export class ItemsService {
   }
 
   public getItemById(id: number) {
-    return this.http.get<Item>(this.url+ "/"+ id)
+    return this.http.get<Item>(this.url+ "/" + id);
   }
 
   public updateItem(id: Number, item: Item) {
-    return this.http.put<Item>(this.url+ "/"+ id, item)
+    return this.http.put<Item>(this.url+ "/" + id, item);
   }
 
 

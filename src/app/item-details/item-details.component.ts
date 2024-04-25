@@ -22,8 +22,6 @@ export class ItemDetailsComponent implements OnInit {
   item!: Item;
   //  url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSByJnPt5Zve9UgvAH1n9RQO2ocst0_qSbMrdo1cZSQDw&s";
 
-  
-
   constructor(private service: ItemsService, 
     private route: ActivatedRoute, private dialog: MatDialog) {
 
@@ -33,7 +31,6 @@ export class ItemDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getItemById();
   }
-
 
   public getItemById() {
     this.service.getItemById(this.itemId).subscribe((result) => {
@@ -48,9 +45,12 @@ export class ItemDetailsComponent implements OnInit {
       data: this.item
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   // this.service.updateItem()
-    // });
+    dialogRef.afterClosed().subscribe((data) => {
+      this.service.getItemById(this.itemId).subscribe((result) => {
+        console.log(result);
+        this.item = result;
+      })
+    });
   }
 
 }

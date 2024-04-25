@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { ItemsService } from '../items-service.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarRef, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { SnackBarComponent } from '../snack-bar/snack-bar.component';
 
 @Component({
   selector: 'app-update-item-dialog',
@@ -26,13 +28,26 @@ export class UpdateItemDialogComponent {
     url: [this.data.url, Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) private data: Item, private itemService: ItemsService){
+  durationInSeconds = 5;
+ 
+  constructor(private _snackBar: MatSnackBar, private formBuilder: FormBuilder, @Inject(MAT_DIALOG_DATA) private data: Item, private itemService: ItemsService){
     console.log(this.data);
   }
 
-  public updateItem() {
+  openSnackBar(message: string) {
+    this._snackBar.openFromComponent(SnackBarComponent, {
+      duration: this.durationInSeconds * 1000,
+      data: message,
+      horizontalPosition:'right',
+      verticalPosition:'top'
+    });
+  }
+
+  public updateItem2() {
     const updatedItem: Item = this.itemForm.value;
     this.itemService.updateItem(this.data.id, updatedItem).subscribe();
+    this.openSnackBar("Item was updated");
+
 }
   
 }

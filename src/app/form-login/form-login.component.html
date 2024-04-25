@@ -1,0 +1,20 @@
+<form class="example-form" [formGroup]="user">
+    <h1>Login</h1>
+
+    <mat-form-field class="example-full-width">
+        <!-- <mat-label>
+            User
+        </mat-label> -->
+        <input matInput placeholder="User name" type="text" formControlName="userName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <!-- <mat-label>
+            Password
+        </mat-label> -->
+        <input matInput placeholder="Password" type="password" formControlName="password">
+    </mat-form-field>
+</form>
+
+<div class="example-button-row">
+    <button mat-stroked-button color="primary" (click)="onLogin()">Login</button>
+</div>
